@@ -24,8 +24,6 @@ This lab demonstrates the creation of a Python-based Azure Function App using an
 - **Function App Plan**: Flex Consumption (Linux)
 - **Function App**: `lab1storagequeue-rahaf`
 
----
-
 ### Running the Function Locally
 
 1. Clone this repository and open the project in VS Code.
