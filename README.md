@@ -55,4 +55,70 @@ Test:
   https://lab1storagequeue-rahaf.azurewebsites.net/api/QueueOutputFunction?name=Rahaf
   ```
 -----
-## Part2: 
+## Part2: Azure Function with SQL Output Binding
+
+This part contains an Azure Function that demonstrates writing data to an Azure SQL Database using an output binding.
+
+### Function Overview
+
+- **Trigger:** HTTP POST request
+- **Output Binding:** Azure SQL Database
+- **Target Table:** `dbo.ToDoItems`
+
+### How It Works
+
+The function expects a JSON body like:
+
+```json
+{
+  "title": "Submit lab",
+  "isComplete": false
+}
+```
+
+When called, it inserts a new row into the Azure SQL `ToDoItems` table.
+
+### Local Testing
+
+#### 1. Start the function
+
+```bash
+func start
+```
+
+#### 2. Use curl to invoke the function:
+
+```bash
+curl -X POST http://localhost:7071/api/SqlOutputFunction -H "Content-Type: application/json" -d "{"title":"Submit lab","isComplete":false}"
+```
+
+#### 3. Verify data in Azure SQL
+
+Use the Query Editor in the Azure Portal:
+
+```sql
+SELECT * FROM dbo.ToDoItems;
+```
+
+### Required Configuration
+
+In `local.settings.json` (excluded from repo), add:
+
+```json
+"Values": {
+  "SqlConnectionString": "<your-connection-string>"
+}
+```
+
+### Notes
+
+- The extension bundle version in `host.json` is set to:
+  ```json
+  "version": "[4.*, 5.0.0)"
+  ```
+- The SQL binding extension is included in this version.
+
+
+
+
+
