@@ -118,7 +118,10 @@ In `local.settings.json` (excluded from repo), add:
   ```
 - The SQL binding extension is included in this version.
 
-
+-----
+## Video Demo:
+Please visit the link:
+**[https://youtu.be/MLQCwxjfmk4](https://youtu.be/MLQCwxjfmk4)**
 
 
 
